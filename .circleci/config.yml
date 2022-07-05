@@ -35,7 +35,7 @@ jobs:
         - image: circleci/node:13.8.
       steps:
         - attach_workspace:
-            at: /workspace
+                 at: /workspace
         - run:
             cat output.txt
             
@@ -50,6 +50,7 @@ workflows:
       - welcome/run
       - print_hello
       - save_hello_world_output
+      - print_output_file
       - print_world:
           requires:
             - print_hello
