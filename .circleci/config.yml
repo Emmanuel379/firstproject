@@ -16,6 +16,13 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo worldLenzy
+      
+  save_hello_world_output:
+     docker:
+       - image: circleci/node:13.8.0
+     steps:
+       - run: echo "hello world" > output.txt
+       
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -23,6 +30,7 @@ workflows:
     jobs:
       - welcome/run
       - print_hello
+      - save_hello_world_output
       - print_world:
           requires:
             - print_hello
