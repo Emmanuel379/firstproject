@@ -30,7 +30,7 @@ jobs:
             paths:
               - echo-output
     
-    print_output_file:
+  print_output_file:
       docker:
         - image: circleci/node:13.8.
       steps:
