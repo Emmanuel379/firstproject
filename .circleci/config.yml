@@ -32,12 +32,10 @@ jobs:
     
   print_output_file:
       docker:
-        - image: circleci/node:13.8.0
+        - image: circleci/node:13.8.
       steps:
         - attach_workspace:
             at: /workspace
-        - run:
-            cat output.txt
 
 
        
@@ -49,9 +47,6 @@ workflows:
       - welcome/run
       - print_hello
       - save_hello_world_output
-      - print_output_file:
-          requires:
-            - save_hello_world_outpu
       - print_world:
           requires:
             - print_hello
