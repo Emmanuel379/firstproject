@@ -36,6 +36,9 @@ jobs:
       steps:
         - attach_workspace:
             at: /workspace
+        - run:
+            cat output.txt
+            
 
 
        
