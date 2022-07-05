@@ -25,10 +25,7 @@ jobs:
        - run: echo "Hello, world!" > output.txt
        - run: mkdir -p workspace
        - run: echo "Hello, world!" > workspace/echo-output
-       - persist_to_workspace:
-            root: workspace
-            paths: 
-              - echo-output
+
        
 workflows:
   # Name the workflow "welcome"
