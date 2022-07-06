@@ -4,12 +4,10 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "A very simple command that prints the pipelineId to the console"
-    parameters:
-      to:
-        type: string
-        default: $CIRCLE_WORKFLOW_ID
     steps:
-      - run: echo << parameters.to >>
+      - run: echo ${CIRCLE_WORKFLOW_ID}
+      
+      
 # Use a package of configuration called an orb.
 orbs:
   # Declare a dependency on the welcome-orb
@@ -32,9 +30,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id:
-          to: " is the variable ID"
-      - run: echo hello
+      - print_pipeline_id
       
   save_hello_world_output:
      docker:
